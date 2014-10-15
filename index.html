@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Alfa vmesnik za Mariborski načrtovalnik</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+
+    <!-- include the core otpjs build files -->
+    <script src="build/build.js"></script>
+    <link rel="stylesheet" href="build/build.css" />
+
+    <!-- include the client-specific code, styles, and configuration -->
+    <script src="otp.config.js"></script>
+
+
+
+    <link rel="stylesheet" href="client.css" />
+	<style>
+		/*always  shows tab pane when tabs aren't shown */
+		body.mode-other .tab-pane {
+			display:block;
+		} 
+		/*#mymap, .tab-content, .row, body, html {
+			height:100%;
+		}*/
+	</style>
+
+    <!--[if lt IE 9]>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div class="row">
+		<ul class="nav nav-tabs visible-xs" id="tabs" data-tabs="tabs">
+			<li class="active"><a href="#sidebar" data-toggle="tab">Input</a></li>
+			<li><a class="formap" href="#mymap" data-toggle="tab">Map</a></li>
+			<li><a href="#plan" data-toggle="tab">Plan</a></li>
+		</ul>
+		<div class="tab-content">
+			<div id="sidebar" class="col-sm-4 col-md-3 active tab-pane">
+				<div class="row" id="request"></div>
+				<p>More information and another frontend is <a href="http://planner-daljinko.rhcloud.com/">here</a></p>
+				<div class="row" id="narrative"></div>
+			</div>
+			<div class="col-sm-8 col-md-9 tab-pane" id="mymap">
+				<div id="map" style="height: 700px"></div>
+			</div>
+			<div class="col-sm-4 col-md-3 tab-pane" id="plan">
+			</div>
+		</div>
+    </div>
+
+    <script src="client2.js"></script>
+
+</body>
+
+</html>
