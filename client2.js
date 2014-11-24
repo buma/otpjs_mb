@@ -186,17 +186,31 @@ $(document).ready(function() {
         attribution: '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>. Tiles courtesy of <a href="http://www.thunderforest.com/">Andy Allan</a>'
     });
 
+    var marpromTransport = L.tileLayer('http://mysentry.duckdns.org:8080/marprom/{z}/{x}/{y}.png', {
+        maxZoom: 17,
+        attribution: '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>. Tiles courtesy of <a href="https://github.com/codeforamerica/Transit-Map-in-TileMill">Transit Map in TileMill</a> & MaBu'
+    });
+
+    var marpromTransportOverlay = L.tileLayer('http://mysentry.duckdns.org:8080/marprom_overlay/{z}/{x}/{y}.png', {
+        maxZoom: 17,
+        attribution: '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>. Tiles courtesy of <a href="https://github.com/codeforamerica/Transit-Map-in-TileMill">Transit Map in TileMill</a> & MaBu'
+    });
+
     // create a leaflet layer control and add it to the map
     var baseLayers = {
         "Street Map" : osmLayer,
+        "Marprom transport": marpromTransport,
         "Bicycle Map": cycleLayer,
         "Public transport Map": transportLayer,
         "Satellite Map" : aerialLayer
     };
-    L.control.layers(baseLayers).addTo(map);
+    L.control.layers(baseLayers, {"Marprom transport": marpromTransportOverlay}).addTo(map);
 
     // display the OSM street layer by default
     osmLayer.addTo(map);
+
+    // displays marprom overlay by default
+    marpromTransportOverlay.addTo(map);
 
     // create the trip topography widget and add it to the map
     var topoControl = new OTP.topo_views.LeafletTopoGraphControl();
