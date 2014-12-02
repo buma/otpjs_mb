@@ -196,6 +196,12 @@ $(document).ready(function() {
         attribution: '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>. Tiles courtesy of <a href="https://github.com/codeforamerica/Transit-Map-in-TileMill">Transit Map in TileMill</a> & MaBu'
     });
 
+    var mbcycleLayer = L.tileLayer('http://mysentry.duckdns.org:8080/mb_cycle/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>. Tiles courtesy of MaBu'
+    });
+
+
     // create a leaflet layer control and add it to the map
     var baseLayers = {
         "Street Map" : osmLayer,
@@ -204,7 +210,7 @@ $(document).ready(function() {
         "Public transport Map": transportLayer,
         "Satellite Map" : aerialLayer
     };
-    L.control.layers(baseLayers, {"Marprom transport": marpromTransportOverlay}).addTo(map);
+    L.control.layers(baseLayers, {"Marprom transport": marpromTransportOverlay, "Maribor cycle": mbcycleLayer}).addTo(map);
 
     // display the OSM street layer by default
     osmLayer.addTo(map);
