@@ -8,8 +8,9 @@ var OTP_config = {
 
         /*"otpApi": "http://maps.cherriots.org:8080/opentripplanner-api-webapp/ws",*/
         /*"otpApi": "http://192.168.0.100:8080/otp-rest-servlet/ws",*/
+        "otpApi": "http://planner.duckdns.org/otp-rest-servlet/ws",
         /*"otpApi":"http://planner-daljinko.rhcloud.com/otp-rest-servlet/ws",*/
-        "otpApi":"http://212.47.236.143/otp-rest-servlet/ws",
+        /*"otpApi":"http://212.47.236.143/otp-rest-servlet/ws",*/
 	"esriApi": "http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/",
         "metric": false,
 
